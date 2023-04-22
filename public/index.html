@@ -25,9 +25,45 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+        <script>
+
+          window.addEventListener('load', () => {
+
+            registerSW();
+
+          });
+
+
+          // Register the Service Worker
+
+          async function registerSW() {
+
+            if ('serviceWorker' in navigator) {
+
+              try {
+
+                await navigator
+
+                  .serviceWorker
+
+                  .register('serviceworker.js');
+
+              }
+
+              catch (e) {
+
+                console.log('SW registration failed');
+
+              }
+
+            }
+
+          }
+
+        </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+
     <div id="root"></div>
     <!--
       This HTML file is a template.
